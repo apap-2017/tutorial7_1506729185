@@ -25,10 +25,18 @@ public class CourseController {
 
         if (course != null) {
             model.addAttribute ("course", course);
-            return "view-course";
+            return "viewcourse";
         } else {
             model.addAttribute ("id_course", id_course);
             return "not-found";
         }
+    }
+	
+	@RequestMapping("/course/viewall")
+    public String viewAllCourse (Model model)
+    {
+        List<CourseModel> courses = courseDAO.selectAllCourse();
+        model.addAttribute("courses", courses);
+        return "viewall-course";
     }
 }
