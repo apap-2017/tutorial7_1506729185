@@ -19,13 +19,16 @@ public interface CourseMapper {
     		"from studentcourse join student " + 
     		"on studentcourse.npm = student.npm " 
     		+ "where studentcourse.id_course = #{id_course}")
-	 List<StudentModel> selectCourseStudent (@Param("id_course") String id_course);
+	 	List<StudentModel> selectCourseStudent(@Param("id_course") String id_course);
+	
+	@Select("select * from course")
+	 List<CourseModel> selectAllCourse();
 	
 	@Select("select id_course, name, credits " + 
     		"from course " + 
     		 "where id_course = #{id_course}")
 	@Results(value = {
-		    @Result(property="idCourse", column="id_course"),
+		    @Result(property="id_course", column="id_course"),
 		    @Result(property="name", column="name"),
 		    @Result(property="credits", column="credits"),
 		    @Result(property="students", column="id_course",

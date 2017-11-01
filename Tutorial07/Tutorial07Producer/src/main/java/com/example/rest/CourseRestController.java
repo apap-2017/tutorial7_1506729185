@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.CourseModel;
+import com.example.model.StudentModel;
 import com.example.service.CourseService;
 
 @RestController
@@ -26,9 +27,9 @@ public class CourseRestController {
         return course;
     }
 	
-	@RequestMapping("student/viewall")
+	@RequestMapping("course/viewall")
 	public List<CourseModel> viewall (Model model) {
-		List<CourseModel> courses = courseService.selectCourseStudent();
+		List<CourseModel> courses = courseService.selectAllCourse();
 
         return courses;
 	}

@@ -25,7 +25,7 @@ public class CourseServiceDatabase implements CourseService {
 	}
 
 	@Override
-	public List<StudentModel> selectCourseStudent(String id_course) {
-		return courseMapper.selectCourseStudent(id_course);
+	public List<CourseModel> selectAllCourse() {
+		return courseMapper.selectAllCourse();
 	}
 }
